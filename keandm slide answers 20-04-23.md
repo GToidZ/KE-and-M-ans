@@ -22,6 +22,33 @@ graph TD;
 ```
 $$\text{Fig.1 Sample network diagram}$$
 
+And, the tables for probabilites,
+
+|P(b)|
+|:-:|
+|0.001|
+
+|P(e)|
+|:-:|
+|0.001|
+
+|B|E|P(a)|
+|:-:|:-:|:-:|
+|T|T|0.95|
+|T|F|0.94|
+|F|T|0.29|
+|F|F|0.001|
+
+|A|P(j)|
+|:-:|:-:|
+|T|0.90|
+|F|0.05|
+
+|A|P(m)|
+|:-:|:-:|
+|T|0.70|
+|F|0.01|
+
 * P(~b, e, a, ~j, m)
   $$P(\neg b)P(e)P(a|\neg b, e)P(\neg j|a)P(m|a)$$
 
@@ -101,6 +128,7 @@ Now we provide a new sample network,
 graph TD;
   S-->C;
   S-->B;
+  C-->B;
   C-->A;
 ```
 $$\text{Fig.2 Sample network diagram for slide 15}$$
