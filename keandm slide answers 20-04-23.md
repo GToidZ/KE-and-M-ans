@@ -56,10 +56,10 @@ And, the tables for probabilites,
   $$P(b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A)$$
 
 * P(a|j,m)
-  $$\alpha\sum_BP(B)\sum_EP(E)P(a|B,E)P(j|a)P(m|A)$$
+  $$\alphaP(j|a)P(m|a)\sum_BP(B)\sum_EP(E)P(a|B,E)$$
 
 * P(~a|b,j)
-  $$\alpha P(b)\sum_EP(E)P(\neg a|b,E)P(j|\neg a)\sum_MP(M|\neg a)$$
+  $$\alpha P(b)P(j|\neg a)\sum_EP(E)P(\neg a|b,E)\sum_MP(M|\neg a)$$
   
 **Note:** The position of each factors may affect heavily when working on inferencing using enumeration. These might not be the best answers, so be sure to practice!
 
