@@ -49,17 +49,19 @@ And, the tables for probabilites,
 |T|0.70|
 |F|0.01|
 
-* P(~b, e, a, ~j, m)
+* P(~b,e,a,~j,m)
   $$P(\neg b)P(e)P(a|\neg b, e)P(\neg j|a)P(m|a)$$
 
-* P(b, j, m)
+* P(b,j,m)
   $$P(b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A)$$
 
-* P(a|j, m)
+* P(a|j,m)
   $$\alpha\sum_BP(B)\sum_EP(E)P(a|B,E)P(j|a)P(m|A)$$
 
-* P(~a|b, j)
+* P(~a|b,j)
   $$\alpha P(b)\sum_EP(E)P(\neg a|b,E)P(j|\neg a)\sum_MP(M|\neg a)$$
+  
+**Note:** The position of each factors may affect heavily when working on inferencing using enumeration. These might not be the best answers, so be sure to practice!
 
 ## Slide 15
 Reference the $\text{Fig.1}$ graphic,
@@ -68,6 +70,7 @@ Before the answer, here's how we can calculate the exact inference probability, 
 
 ```math
 P(b|j,m)
+=
 \alpha P(b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A)
 =
 \alpha\cdot0.001\cdot
@@ -96,6 +99,7 @@ P(b|j,m)
 
 ```math
 P(\neg b|j,m)
+=
 \alpha P(\neg b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A)
 =
 \alpha\cdot0.999\cdot
@@ -159,3 +163,34 @@ And, the tables for probabilites,
 We want to find P(b|c,~a)
 
 <!-- TODO: Add answer for slide 15 -->
+```math
+P(b|c,\neg a)
+=
+\alpha P(\neg a|c)\sum_SP(S)P(c|S)P(b|c,S)
+=
+\alpha\cdot0.2\cdot
+\left[
+\begin{aligned}
+&^{S=T}(0.55\cdot0.2\cdot0.8) \\
+&+ \\
+&^{S=F}(0.45\cdot0.1\cdot0.9)
+\end{aligned}
+\right]
+```
+
+Additionally, if we want to know the inverse, P(~b|c,~a)
+
+```math
+P(\neg b|c,\neg a)
+=
+\alpha P(\neg a|c)\sum_SP(S)P(c|S)P(\neg b|c,S)
+=
+\alpha\cdot0.2\cdot
+\left[
+\begin{aligned}
+&^{S=T}(0.55\cdot0.2\cdot0.2) \\
+&+ \\
+&^{S=F}(0.45\cdot0.1\cdot0.1)
+\end{aligned}
+\right]
+```
