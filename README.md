@@ -18,18 +18,27 @@ Unless if you have answers on any blank pages you are willing to share, please d
 ```md
 $ contents $
 ```
-for inline math notations (variables, short algebric expressions)
+For inline math notations (variables, short algebric expressions)
 
 ```md
 $$
 contents
 $$
 ```
-for longer math displays (calculus, matrices)
+For longer math displays (calculus, matrices)
 
 ````md
 ```math
 contents
 ```
 ````
-for large LaTeX math displays (solutions, step-by-step, documentation)
+For large LaTeX math displays (solutions, step-by-step, documentation)
+
+**Graphs and Diagrams**
+````md
+```mermaid
+contents
+```
+````
+Check the documentation at https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams
+and https://mermaid.js.org/intro/
