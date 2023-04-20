@@ -10,6 +10,8 @@ P(c)P(I=medium)P(\neg b)P(s)P(\neg g|I=medium, c, \neg b)P(L=low|s, \neg g)
 $$
 
 ## Slide 12
+$\alpha$ is a normalization factor.
+
 We provide a sample network:
 ```mermaid
 graph TD;
@@ -27,10 +29,10 @@ $$\text{Fig.1 Sample network diagram}$$
   $$P(b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A)$$
 
 * P(a|j, m)
-  $$a\sum_BP(B)\sum_EP(E)P(a|B,E)P(j|a)P(m|A)$$
+  $$\alpha\sum_BP(B)\sum_EP(E)P(a|B,E)P(j|a)P(m|A)$$
 
 * P(~a|b, j)
-  $$aP(b)\sum_EP(E)P(\neg a|b,E)P(j|\neg a)\sum_MP(M|\neg a)$$
+  $$\alpha P(b)\sum_EP(E)P(\neg a|b,E)P(j|\neg a)\sum_MP(M|\neg a)$$
 
 ## Slide 15
 Reference the $\text{Fig.1}$ graphic,
@@ -38,26 +40,55 @@ Reference the $\text{Fig.1}$ graphic,
 Before the answer, here's how we can calculate the exact inference probability, for example we want caculate $P(B|j,m)$
 
 ```math
-aP(b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A)
+P(b|j,m)
+\alpha P(b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A)
 =
-a\cdot0.001\cdot
+\alpha\cdot0.001\cdot
 \left[
 \begin{aligned}
-^{E=T}0.002 \cdot
+&^{E=T}0.002 \cdot
 \left[
 \begin{aligned}
-{^{A=T}(0.95\cdot0.9\cdot0.7)} \\
-+ \\
-{^{A=F}(0.05\cdot0.05\cdot0.01)}
+&{^{A=T}(0.95\cdot0.9\cdot0.7)} \\
+&+ \\
+&{^{A=F}(0.05\cdot0.05\cdot0.01)}
 \end{aligned}
 \right] \\
-+ \\
-^{E=F}0.998 \cdot
+&+ \\
+&^{E=F}0.998 \cdot
 \left[
 \begin{aligned}
-{^{A=T}(0.94\cdot0.9\cdot0.7)} \\
-+ \\
-{^{A=F}(0.06\cdot0.05\cdot0.01)}
+&{^{A=T}(0.94\cdot0.9\cdot0.7)} \\
+&+ \\
+&{^{A=F}(0.06\cdot0.05\cdot0.01)}
+\end{aligned}
+\right]
+\end{aligned}
+\right]
+```
+
+```math
+P(\neg b|j,m)
+\alpha P(\neg b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A)
+=
+\alpha\cdot0.999\cdot
+\left[
+\begin{aligned}
+&^{E=T}0.002 \cdot
+\left[
+\begin{aligned}
+&{^{A=T}(0.29\cdot0.9\cdot0.7)} \\
+&+ \\
+&{^{A=F}(0.71\cdot0.05\cdot0.01)}
+\end{aligned}
+\right] \\
+&+ \\
+&^{E=F}0.998 \cdot
+\left[
+\begin{aligned}
+&{^{A=T}(0.001\cdot0.9\cdot0.7)} \\
+&+ \\
+&{^{A=F}(0.999\cdot0.05\cdot0.01)}
 \end{aligned}
 \right]
 \end{aligned}
