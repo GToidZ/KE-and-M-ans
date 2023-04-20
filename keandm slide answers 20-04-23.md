@@ -69,10 +69,9 @@ Reference the $\text{Fig.1}$ graphic,
 Before the answer, here's how we can calculate the exact inference probability, for example we want caculate $P(B|j,m)$
 
 ```math
-P(b|j,m)
-=
-\alpha P(b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A)
-=
+\begin{aligned}
+P(b|j,m) &=
+\alpha P(b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A) \\ &=
 \alpha\cdot0.001\cdot
 \left[
 \begin{aligned}
@@ -95,13 +94,13 @@ P(b|j,m)
 \right]
 \end{aligned}
 \right]
+\end{aligned}
 ```
 
 ```math
-P(\neg b|j,m)
-=
-\alpha P(\neg b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A)
-=
+\begin{aligned}
+P(\neg b|j,m) &=
+\alpha P(\neg b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A) \\ &=
 \alpha\cdot0.999\cdot
 \left[
 \begin{aligned}
@@ -124,6 +123,7 @@ P(\neg b|j,m)
 \right]
 \end{aligned}
 \right]
+\end{aligned}
 ```
 
 Now we provide a new sample network,
@@ -164,10 +164,9 @@ We want to find P(b|c,~a)
 
 <!-- TODO: Add answer for slide 15 -->
 ```math
-P(b|c,\neg a)
-=
-\alpha P(\neg a|c)\sum_SP(S)P(c|S)P(b|c,S)
-=
+\begin{aligned}
+P(b|c,\neg a) &=
+\alpha P(\neg a|c)\sum_SP(S)P(c|S)P(b|c,S) \\ &=
 \alpha\cdot0.2\cdot
 \left[
 \begin{aligned}
@@ -176,15 +175,15 @@ P(b|c,\neg a)
 &^{S=F}(0.45\cdot0.1\cdot0.9)
 \end{aligned}
 \right]
+\end{aligned}
 ```
 
 Additionally, if we want to know the inverse, P(~b|c,~a)
 
 ```math
-P(\neg b|c,\neg a)
-=
-\alpha P(\neg a|c)\sum_SP(S)P(c|S)P(\neg b|c,S)
-=
+\begin{aligned}
+P(\neg b|c,\neg a) &=
+\alpha P(\neg a|c)\sum_SP(S)P(c|S)P(\neg b|c,S) \\ &=
 \alpha\cdot0.2\cdot
 \left[
 \begin{aligned}
@@ -193,4 +192,5 @@ P(\neg b|c,\neg a)
 &^{S=F}(0.45\cdot0.1\cdot0.1)
 \end{aligned}
 \right]
+\end{aligned}
 ```
