@@ -56,7 +56,7 @@ And, the tables for probabilites,
   $$P(b)\sum_EP(E)\sum_AP(A|b,E)P(j|A)P(m|A)$$
 
 * P(a|j,m)
-  $$\alphaP(j|a)P(m|a)\sum_BP(B)\sum_EP(E)P(a|B,E)$$
+  $$\alpha P(j|a)P(m|a)\sum_BP(B)\sum_EP(E)P(a|B,E)$$
 
 * P(~a|b,j)
   $$\alpha P(b)P(j|\neg a)\sum_EP(E)P(\neg a|b,E)\sum_MP(M|\neg a)$$
