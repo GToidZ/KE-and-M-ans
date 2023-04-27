@@ -141,14 +141,9 @@ P(\neg b|a,c,d) &= 0.223
 ```
 
 ## Exercise 9
-We want to find $P(P|h,g,\neg v)$.
+TODO: Complete the thing.
 
-```math
-\begin{aligned}
-P(p|h,g,\neg v) &= \alpha\sum_MP(M)*P(g)*P(\neg v|M,g)*P(h|M,g)*\sum_RP(R|g)*P(p|v,h,R) \\
-P(\neg p|h,g,\neg v) &= \alpha\sum_MP(M)*P(g)*P(\neg v|M,g)*P(h|M,g)*\sum_RP(R|g)*P(\neg p|v,h,R)
-\end{aligned}
-```
+We want to find $P(P|h,g,\neg v)$.
 
 ```math
 \begin{aligned}
@@ -156,51 +151,34 @@ P(p|h,g,\neg v) &=
 \alpha*P(g)*
   \left[
     \begin{aligned}
-    &^{M=T} P(m) * P(\neg v|m,g) * P(h|m,g) * 
-      \left [
-        \begin{aligned}
-        &^{R=T} P(r|g) * P(p|v,h,r)\\
-        &+ \\
-        &^{R=F} P(\neg r|g) * P(p|v,h,\neg r)
-        \end{aligned}
-      \right]
-\\
+    &^{M=T} P(m) * P(\neg v|m,g) * P(h|m,g) \\
     &+ \\
-    &^{M=F} P(\neg m) * P(\neg v|\neg m,g) * P(h|\neg m,g) * 
-      \left [
-        \begin{aligned}
-        &^{R=T} P(r|g) * P(p|v,h,r)\\
-        &+ \\
-        &^{R=F} P(\neg r|g) * P(p|v,h,\neg r)
-        \end{aligned}
-      \right]
+    &^{M=F} P(\neg m) * P(\neg v|\neg m,g) * P(h|\neg m,g)
     \end{aligned}
-  \right] \\
-&= \alpha*0.8*
-\left[
+  \right] *
+  \left [
     \begin{aligned}
-    &^{M=T} 0.7 * 0.9 * 0.2 * 
-      \left [
-        \begin{aligned}
-        &^{R=T} 0.2 * 0.9\\
-        &+ \\
-        &^{R=F} 0.8 * 0.7
-        \end{aligned}
-      \right]
-\\
+    &^{R=T} P(r|g) * P(p|v,h,r)\\
     &+ \\
-    &^{M=F} 0.3 * 0.7 * 0.4 * 
-      \left [
-        \begin{aligned}
-        &^{R=T} 0.2 * 0.9\\
-        &+ \\
-        &^{R=F} 0.8 * 0.7
-        \end{aligned}
-      \right]
+    &^{R=F} P(\neg r|g) * P(p|v,h,\neg r)
     \end{aligned}
-  \right] \\
-&= a*0.8*\left[(0.7*0.9* 0.2*0.74)+(0.3*0.7*0.4*0.74)\right] \\
-&= a*0.8*0.1554 \\
-&= a*0.12432
+  \right] 
+\\
+&= \alpha*P(g)*
+  \left[
+    \begin{aligned}
+    &^{M=T} 0.7 * 0.9 * 0.2 \\
+    &+ \\
+    &^{M=F} 0.3 * 0.7 * 0.4
+    \end{aligned}
+  \right] *
+  \left [
+    \begin{aligned}
+    &^{R=T} 0.2 * 0.9\\
+    &+ \\
+    &^{R=F} 0.8 * 0.7
+    \end{aligned}
+  \right]  \\
+&= a*0.05712
 \end{aligned}
 ```
