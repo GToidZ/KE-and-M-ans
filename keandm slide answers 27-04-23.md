@@ -1,19 +1,19 @@
 Will come back to work on remaining questions, I can't keep up lol.
 # Slide Answers (27/04/23)
 ## Exercise 2
-Node B:
+Node B (which has a boolean value):
 |$P(b)$|$P(\neg b)$|
 |:-:|:-:|
 |||
 
-Node A:
+Node A (which has a continuous value):
 
 Use a PDF (probability density function): 
 ```math
 N(\mu,\sigma^2)(a)
 ```
 
-Node C:
+Node C (parents are discrete and continuous):
 ```math
 P(c|a,b) = N(a_th+b_t,\sigma_t^2)(c)=\frac{1}{\sigma_t\sqrt{2\pi}e}^{-\frac{1}{2}(\frac{c-(a_th+b_t)}{\sigma_t})^2}
 ```
@@ -54,4 +54,38 @@ P(c|a,\neg d,f) = \alpha*\sum_B\sum_EP(a)*P(B|a)*P(E|B)*P(c|B)*P(\neg d|c)*P(f|a
 ```
 ```math
 P(\neg c|a,\neg d,f) = \alpha*\sum_B\sum_EP(a)*P(B|a)*P(E|B)*P(\neg c|B)*P(\neg d|\neg c)*P(f|a,\neg d,E)
+```
+
+## Exercise 7
+```math
+\begin{aligned}
+P(b|\neg e, f) &= \alpha*\sum_AP(A)*P(f)*P(b|A)*P(\neg e|b,f) \\
+P(\neg b|\neg e, f) &= \alpha*\sum_AP(A)*P(f)*P(\neg b|A)*P(\neg e|\neg b,f)
+\end{aligned}
+```
+```math
+\begin{aligned}
+P(b|\neg e, f) &= \alpha * P(f) * P(\neg e|b,f) * \sum_AP(A) * P(b|A) \\
+&= \alpha * 0.4 * 0.2 * \left[ 
+\begin{aligned}
+&^{A=T}0.7 * 0.2 \\
+&+ \\
+&^{A=F}0.3 * 0.6
+\end{aligned}
+\right] \\
+&= a * 0.0256
+\end{aligned}
+```
+```math
+\begin{aligned}
+P(\neg b|\neg e, f) &= \alpha * P(f) * P(\neg e|\neg b,f) * \sum_AP(A) * P(\neg b|A) \\
+&= \alpha * 0.4 * 0.6 * \left[ 
+\begin{aligned}
+&^{A=T}0.7 * 0.8 \\
+&+ \\
+&^{A=F}0.3 * 0.4
+\end{aligned}
+\right] \\
+&= a * 0.1632
+\end{aligned}
 ```
