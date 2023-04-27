@@ -89,3 +89,118 @@ P(\neg b|\neg e, f) &= \alpha * P(f) * P(\neg e|\neg b,f) * \sum_AP(A) * P(\neg 
 &= a * 0.1632
 \end{aligned}
 ```
+
+Eliminate $\alpha$:
+```math
+\begin{aligned}
+P(b|\neg e,f) &= \frac{0.0256}{0.0256+0.1632} = 0.1355 \\
+P(\neg b|\neg e,f) &= 0.8645
+\end{aligned}
+```
+
+## Exercise 8
+We can use Markov Blanket to find the probability distribution,
+
+We are interested in Node B.
+
+Markov Blanket of B: Node A, Node C, Node D.
+
+The states are: $A=True,B=False,C=True,D=True,E=False$.
+
+From network, we need to find: $P(B|a,c,d)$
+
+```math
+\begin{aligned}
+P(b|a,c,d) &= \alpha*P(a)*P(d)*P(b|a)*P(c|b,d) \\
+P(\neg b|a,c,d) &= \alpha*P(a)*P(d)*P(\neg b|a)*P(c|\neg b,d)
+\end{aligned}
+```
+
+```math
+\begin{aligned}
+P(b|a,c,d) &= \alpha * P(a) * P(d) * P(b|a) * P(c|b,d)\\
+&= \alpha * 0.6 * 0.7 * 0.7 * 0.3 \\
+&= a * 0.0882
+\end{aligned}
+```
+
+```math
+\begin{aligned}
+P(\neg b|a,c,d) &= \alpha * P(a) * P(d) * P(\neg b|a) * P(c|\neg b,d)\\
+&= \alpha * 0.6 * 0.7 * 0.3 * 0.2 \\
+&= a * 0.0252
+\end{aligned}
+```
+
+Eliminate $\alpha$ with $\frac{1}{P(b|a,c,d) + P(\neg b|a,c,d)}$
+```math
+\begin{aligned}
+P(b|a,c,d) &= \frac{0.0882}{0.0882+0.0252} = 0.778 \\
+P(\neg b|a,c,d) &= 0.223
+\end{aligned}
+```
+
+## Exercise 9
+We want to find $P(P|h,g,\neg v)$.
+
+```math
+\begin{aligned}
+P(p|h,g,\neg v) &= \alpha\sum_MP(M)*P(g)*P(\neg v|M,g)*P(h|M,g)*\sum_RP(R|g)*P(p|v,h,R) \\
+P(\neg p|h,g,\neg v) &= \alpha\sum_MP(M)*P(g)*P(\neg v|M,g)*P(h|M,g)*\sum_RP(R|g)*P(\neg p|v,h,R)
+\end{aligned}
+```
+
+```math
+\begin{aligned}
+P(p|h,g,\neg v) &=
+\alpha*P(g)*
+  \left[
+    \begin{aligned}
+    &^{M=T} P(m) * P(\neg v|m,g) * P(h|m,g) * 
+      \left [
+        \begin{aligned}
+        &^{R=T} P(r|g) * P(p|v,h,r)\\
+        &+ \\
+        &^{R=F} P(\neg r|g) * P(p|v,h,\neg r)
+        \end{aligned}
+      \right]
+\\
+    &+ \\
+    &^{M=F} P(\neg m) * P(\neg v|\neg m,g) * P(h|\neg m,g) * 
+      \left [
+        \begin{aligned}
+        &^{R=T} P(r|g) * P(p|v,h,r)\\
+        &+ \\
+        &^{R=F} P(\neg r|g) * P(p|v,h,\neg r)
+        \end{aligned}
+      \right]
+    \end{aligned}
+  \right] \\
+&= \alpha*0.8*
+\left[
+    \begin{aligned}
+    &^{M=T} 0.7 * 0.9 * 0.2 * 
+      \left [
+        \begin{aligned}
+        &^{R=T} 0.2 * 0.9\\
+        &+ \\
+        &^{R=F} 0.8 * 0.7
+        \end{aligned}
+      \right]
+\\
+    &+ \\
+    &^{M=F} 0.3 * 0.7 * 0.4 * 
+      \left [
+        \begin{aligned}
+        &^{R=T} 0.2 * 0.9\\
+        &+ \\
+        &^{R=F} 0.8 * 0.7
+        \end{aligned}
+      \right]
+    \end{aligned}
+  \right] \\
+&= a*0.8*\left[(0.7*0.9* 0.2*0.74)+(0.3*0.7*0.4*0.74)\right] \\
+&= a*0.8*0.1554 \\
+&= a*0.12432
+\end{aligned}
+```
