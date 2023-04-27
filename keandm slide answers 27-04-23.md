@@ -1,3 +1,4 @@
+Will come back to work on remaining questions, I can't keep up lol.
 # Slide Answers (27/04/23)
 ## Exercise 2
 Node B:
@@ -18,4 +19,33 @@ P(c|a,b) = N(a_th+b_t,\sigma_t^2)(c)=\frac{1}{\sigma_t\sqrt{2\pi}e}^{-\frac{1}{2
 ```
 ```math
 P(c|a,\neg b) = N(a_fh+b_f,\sigma_f^2)(c)=\frac{1}{\sigma_f\sqrt{2\pi}e}^{-\frac{1}{2}(\frac{c-(a_fh+b_f)}{\sigma_f})^2}
+```
+
+
+## Exercise 5
+5.1 
+```math
+P(c,d) = \sum_A\sum_B\sum_EP(d)*P(B)*P(A|B,d)*P(E)*P(c|A,E)
+```
+
+5.2
+```math
+P(a|\neg b,c) = \alpha*\sum_D\sum_EP(\neg b)*P(D)*P(E)*P(a|\neg b,D)*P(c|a, E)
+```
+```math
+P(\neg a|\neg b,c) = \alpha*\sum_D\sum_EP(\neg b)*P(D)*P(E)*P(\neg a|\neg b,D)*P(c|\neg a, E)
+```
+
+## Exercise 6
+6.1
+```math
+P(\neg a,e,f) = \sum_B\sum_C\sum_DP(\neg a)*P(B|\neg a)*P(e|B)*P(C|B)*P(D|C)*P(f|D,e)
+```
+
+6.2
+```math
+P(c|a,\neg d,f) = \alpha*\sum_B\sum_EP(a)*P(B|a)*P(E|B)*P(c|B)*P(\neg d|c)*P(f|\neg d,E)
+```
+```math
+P(\neg c|a,\neg d,f) = \alpha*\sum_B\sum_EP(a)*P(B|a)*P(E|B)*P(\neg c|B)*P(\neg d|\neg c)*P(f|\neg d,E)
 ```
